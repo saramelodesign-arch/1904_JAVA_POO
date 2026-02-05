@@ -1,4 +1,5 @@
 public class ContaBancaria {
+
     // Atributos privados
     private String titular;
     private String numeroConta;
@@ -13,42 +14,43 @@ public class ContaBancaria {
         this.ativa = true;
     }
 
-    // Método que retorna o estado de conta com base no saldo
+    // Método que retorna o estado da conta com base no saldo
     public String estadoConta() {
         if (saldo > 0) {
             return "Conta Positiva";
-            } else if (saldo == 0) {
-                return "Conta a Zero";
-            } else {
-                return "Conta Negativa";
-            }
+        } else if (saldo == 0) {
+            return "Conta a Zero";
+        } else {
+            return "Conta Negativa";
+        }
     }
 
-    // Método depositar na conta se activa
+    // Método para depositar dinheiro (apenas se a conta estiver ativa e o valor for válido)
     public void depositar(double valor) {
         if (ativa && valor > 0) {
             saldo += valor;
             System.out.println("Depósito de " + valor + " realizado com sucesso.");
         } else {
-            System.out.println("Acção impossível. Conta do titular " + titular + " não está activa ou valor inválido.");
+            System.out.println(
+                "Ação impossível. Conta do titular " + titular + " não está ativa ou valor inválido."
+            );
         }
     }
 
-    //Getters
-    get estadoConta {
-        return estadoConta();
+    // Getters
+    public String getTitular() {
+        return titular;
     }
 
-    get saldo {
-        return saldo;
-    }
-
-    public String getEstadoConta() {
-        return estadoConta();
+    public String getNumeroConta() {
+        return numeroConta;
     }
 
     public double getSaldo() {
         return saldo;
     }
 
+    public boolean isAtiva() {
+        return ativa;
+    }
 }

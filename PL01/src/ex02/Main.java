@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         // CRIAR OS OBJETOS
         Gato gato1 = new Gato("Fiona", "Amarela", "Miau");
-        Gato gato2 = new Gato("bartolomeu", "Preto", "Miau");
+        Gato gato2 = new Gato("Bartolomeu", "Preto", "Miau");
 
         //Fazer o gato1 miar e brincar
         gato1.miar();
