@@ -1,18 +1,30 @@
-## Getting Started
+# Exercício – ArrayList (Java POO)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Descrição
+Exercício desenvolvido no âmbito da aprendizagem de **ArrayList em Java**, utilizando Programação Orientada a Objetos.  
+O objetivo é gerir uma lista de carros, recorrendo a uma classe `Carro` e a uma classe `Main` para testar o funcionamento.
 
-## Folder Structure
+## Estrutura do Projeto
+- `Carro.java` – representa um carro, com os respetivos atributos e métodos
+- `Main.java` – classe principal responsável por criar e gerir uma `ArrayList` de carros
 
-The workspace contains two folders by default, where:
+## Funcionalidades
+- Criação de objetos da classe `Carro`
+- Armazenamento dos objetos numa `ArrayList`
+- Percorrer a lista utilizando um ciclo `for-each`
+- Apresentação dos dados dos carros na consola
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Conceitos Aplicados
+- Classes e Objetos
+- Construtores
+- Encapsulamento
+- Métodos
+- `ArrayList`
+- Ciclo `for-each`
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Execução
+Compilar e executar a partir da pasta do projeto:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+```bash
+javac *.java
+java Main

@@ -1,18 +1,53 @@
-## Getting Started
+# Aula 02 – Estruturas Básicas e Arrays (Java)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Descrição
+Conjunto de exercícios desenvolvidos na Aula 02, com o objetivo de consolidar conceitos fundamentais da linguagem Java, nomeadamente a utilização de **arrays**, **métodos** e **operações básicas sobre dados**.
 
-## Folder Structure
+Cada exercício aborda um problema simples e independente.
 
-The workspace contains two folders by default, where:
+## Exercícios Incluídos
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### ex01 – Array.java
+Exercício focado na criação e utilização de **arrays de valores**.
+Permite compreender como:
+- declarar um array
+- inicializar valores
+- percorrer um array
+- aceder aos seus elementos
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### ex02 – Converter.java
+Exercício de conversão de valores, com recurso a **métodos**.
+Tem como objetivo:
+- trabalhar cálculos simples
+- compreender a passagem de parâmetros
+- estruturar código de forma organizada
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### ex03 – ArrayNomes.java
+Exercício dedicado à utilização de **arrays de Strings**.
+Permite:
+- armazenar vários nomes
+- percorrer arrays de texto
+- apresentar informação na consola
 
-## Dependency Management
+## Estrutura do Projeto
+- `Array.java` – manipulação básica de arrays numéricos
+- `Converter.java` – conversão de valores através de métodos
+- `ArrayNomes.java` – utilização de arrays de strings
+- `Main.java` – classe principal para execução dos exercícios
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Conceitos Aplicados
+- Arrays
+- Classes e Objetos
+- Métodos
+- Tipos de dados primitivos
+- Strings
+- Ciclos (`for`)
+- Impressão na consola
+
+## Execução
+Compilar e executar a partir da pasta do projeto:
+
+```bash
+javac *.java
+java Main
+

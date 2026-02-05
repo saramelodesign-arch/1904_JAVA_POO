@@ -1,18 +1,35 @@
-## Getting Started
+# Aula 01 – Classes e Objetos (Java)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Descrição
+Exercício introdutório à Programação Orientada a Objetos em Java, com foco na criação de classes, definição de atributos e utilização de métodos.
 
-## Folder Structure
+A aula trabalha dois exemplos simples:
+- uma classe para representar uma pessoa
+- uma classe para cálculo de áreas
 
-The workspace contains two folders by default, where:
+## Estrutura do Projeto
+- `Pessoa.java` – representa uma pessoa através de atributos básicos
+- `Area.java` – contém métodos para cálculo de áreas geométricas
+- `Main.java` – classe principal para testar as classes criadas
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Objetivos da Aula
+- Compreender o conceito de **classe**
+- Criar **objetos** a partir de classes
+- Definir **atributos** e **métodos**
+- Utilizar o método `main`
+- Executar métodos e apresentar resultados na consola
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Conceitos Aplicados
+- Classes e Objetos
+- Atributos
+- Métodos
+- Método `main`
+- Tipos de dados primitivos
+- Impressão na consola (`System.out.println`)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Execução
+Compilar e executar a partir da pasta do projeto:
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+```bash
+javac *.java
+java Main

@@ -1,18 +1,35 @@
-## Getting Started
+# Herança – Funcionários (Java POO)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Descrição
+Exercício desenvolvido para consolidar o conceito de **herança em Java**, através da criação de uma classe base `Funcionario` e de classes derivadas que representam diferentes tipos de funcionários.
 
-## Folder Structure
+O exercício demonstra como reutilizar código e especializar comportamentos recorrendo a subclasses.
 
-The workspace contains two folders by default, where:
+## Estrutura do Projeto
+- `Funcionario.java` – classe base que representa um funcionário genérico
+- `Gerente.java` – subclasse de `Funcionario` com características específicas
+- `Vendedor.java` – subclasse de `Funcionario` com características específicas
+- `Main.java` – classe principal para testar o funcionamento do sistema
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Objetivos do Exercício
+- Compreender o conceito de **herança**
+- Utilizar a palavra-chave `extends`
+- Reutilizar atributos e métodos da classe base
+- Especializar comportamento nas subclasses
+- Criar e utilizar objetos de diferentes classes relacionadas
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Conceitos Aplicados
+- Programação Orientada a Objetos
+- Herança
+- Classes base e subclasses
+- Encapsulamento
+- Construtores
+- Método `main`
+- Polimorfismo básico (através de objetos de subclasses)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Execução
+Compilar e executar a partir da pasta do projeto:
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+```bash
+javac *.java
+java Main

@@ -1,71 +1,82 @@
 /**
- * Classe Vendedor - subclasse de Funcionario
+ * Classe Vendedor - Subclasse de Funcionario
  * 
- * Representa um vendedor que herda de funcionário e adiciona funcionalidades específicas de vendas e bónus.
+ * Representa um vendedor que herda de Funcionario e adiciona funcionalidades
+ * específicas de vendas e comissões.
  * 
- * @Author Sara Melo
+ * @author Sara Melo
  * @version 1.0
  */
-
 public class Vendedor extends Funcionario {
-
-    //Atributos privado adicional
+    // Atributo privado adicional
     private double vendas;
 
     /**
-     * Construtor da classe Vendedor
-     * @param nome Nome do vendedor
-     * @param salario Salário do vendedor
-     * @param departamento Departamento do vendedor
+     * Construtor da classe Vendedor. Inicializa o vendedor com nome, salário e
+     * departamento. As vendas começam em 0. Usa super() para inicializar a
+     * superclasse.
+     * 
+     * @param nome         Nome do vendedor.
+     * @param salario      Salário mensal em euros.
+     * @param departamento Departamento onde trabalha.
      */
-
     public Vendedor(String nome, double salario, String departamento) {
+        // Chama o construtor da superclasse
         super(nome, salario, departamento);
-        this.vendas = 0.0; //Inicializa vendas como 0
+        this.vendas = 0;
     }
 
-    //Métodos getters
+    // ========== MÉTODOS GETTERS ==========
+    /**
+     * Obtém o valor total de vendas do vendedor.
+     * 
+     * @return O valor das vendas em euros.
+     */
     public double getVendas() {
         return vendas;
     }
 
-    //Métodos de funcionamento
+    // ========== MÉTODOS DE FUNCIONAMENTO ==========
     /**
-     * Realiza o registo de uma venda e adiciona o valor ao total
-     * @param valor Valor da venda a ser registada
+     * Realiza o registo de uma venda e adiciona o valor ao total.
+     * 
+     * @param valor Valor da venda em euros.
      */
-
-    public void registrarVenda(double valor) {
-        if (valor >= 0) {
+    public void registarVenda(double valor) {
+        if (valor > 0) {
             this.vendas += valor;
-        System.out.println(this.getNome() + " registou uma venda de: " + valor + "euros. Total de vendas: " + this.vendas);
-        this.vendas + " euros.";
+            System.out.println(this.getNome() + " registou uma venda de " + valor + " euros.");
         }
     }
-/**
- * Calcula o bónus do vendedor com base nas vendas realizadas
- */@returns O valor do bónus calculado
- */
+
+    /**
+     * Calcula o bónus do vendedor. Sobrescreve o método da superclasse. Bónus =
+     * Salário + (Vendas * 0.05) - 5% de comissão nas vendas
+     * 
+     * @return O valor do bónus em euros.
+     */
     @Override
-    public bonus() {
-        double bonus = (vendas * 0.05) //5% das vendas como bónus
+    public double bonus() {
+        double bonusVendas = (vendas * 0.05);
         return this.getSalario() + bonusVendas;
     }
 
     /**
-     * 
-     * Apresenta um relatório das vendas realizadas pelo vendedor
+     * Apresenta um relatório das vendas realizadas pelo vendedor.
      */
-
     public void relatorioVendas() {
-        System.out.println("Relatório de Vendas do Vendedor: " + this.getNome());
-        System.out.println("Total de Vendas: " + this.vendas + " euros.");
+        System.out.println("Vendedor " + this.getNome() + " realizou " + vendas + " euros em vendas este mês");
     }
 
-    //Método toString
+    // ========== MÉTODO TOSTRING ==========
+    /**
+     * Retorna uma representação textual do vendedor. Chama o toString() da
+     * superclasse.
+     * 
+     * @return String com as informações do vendedor.
+     */
     @Override
     public String toString() {
-        return super.toString() + " -Vendas: " + vendas + " euros";
+        return super.toString() + " - Vendas: " + vendas + " euros";
     }
-
 }

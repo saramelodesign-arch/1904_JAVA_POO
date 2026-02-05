@@ -5,7 +5,7 @@
  * atual.
  * Permite acelerar e travar o carro.
  * 
- * @author Mário Amorim
+ * @author Sara Melo
  * @version 1.0
  */
 public class Carro {
@@ -29,6 +29,10 @@ public class Carro {
         this.modelo = modelo;
         this.velocidadeMaxima = velocidadeMaxima;
         this.velocidadeAtual = 0;
+    }
+
+    public Carro() {
+        //TODO Auto-generated constructor stub
     }
 
     // ========== MÉTODOS GETTERS ==========

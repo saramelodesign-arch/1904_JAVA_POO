@@ -7,7 +7,7 @@ import java.util.Collections;
  * Demonstra o funcionamento da classe Carro usando uma ArrayList.
  * Inclui operações como adicionar, remover, consultar e ordenar carros.
  * 
- * @author Mário Amorim
+ * @author Sara Melo
  * @version 1.0
  */
 public class Main {

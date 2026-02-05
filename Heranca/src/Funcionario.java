@@ -1,92 +1,134 @@
+/**
+ * Classe Funcionario - Superclasse para o Sistema de Gestão de Funcionários
+ * 
+ * Representa um funcionário genérico com informações sobre nome, salário,
+ * departamento e horas de trabalho. Serve como base para outras classes
+ * especializadas (Vendedor, Gerente).
+ * 
+ * @author Sara Melo
+ * @version 1.0
+ */
 public class Funcionario {
+    // Atributos privados
+    private String nome;
+    private double salario;
+    private String departamento;
+    private int horas_trabalho;
 
     /**
-     * Classe Funcionário - superclasse para o sistema de Gestão de Funcionários
+     * Construtor da classe Funcionario. Inicializa o funcionário com nome, salário
+     * e departamento. As horas de trabalho começam em 0.
      * 
-     * Representa um funcionário com informações sobre o nome, salário, departamento e horas de trabalho.
-     * Serve como base para outras subclasses especializadas (Vendedor, Gerente)
-     * 
-     * @Author Sara Melo
-     * @version 1.0
+     * @param nome         Nome do funcionário.
+     * @param salario      Salário mensal em euros.
+     * @param departamento Departamento onde trabalha.
      */
+    public Funcionario(String nome, double salario, String departamento) {
+        this.nome = nome;
+        this.salario = salario;
+        this.departamento = departamento;
+        this.horas_trabalho = 0;
+    }
 
-    public class Funcionario {
-        private String nome;
-        private double salario;
-        private String departamento;
-        private int horas_trabalho;
+    // ========== MÉTODOS GETTERS ==========
+    /**
+     * Obtém o nome do funcionário.
+     * 
+     * @return O nome do funcionário.
+     */
+    public String getNome() {
+        return nome;
+    }
 
-        /**
-         * Construtor da classe Funcionario
-         * @param nome Nome do funcionário
-         * @param salario Salário do funcionário
-         * @param departamento Departamento do funcionário
-         */
-public Funcionario(String nome, double salario, String departamento) {
-            this.nome = nome;
-            this.salario = salario;
-            this.departamento = departamento;
-            this.horas_trabalho = 0; //Inicializa horas trabalhadas como 0
-}
- //Métodos getters
-        public String getNome() {
-            return nome;
-        }
-        public double getSalario() {
-            return salario;
-        }
-        public String getDepartamento() {
-            return departamento;
-        }
-        public int getHorasTrabalho() {
-            return horas_trabalho;
-        }
- //Métodos setters
-        public void setNome(String nome) {
-            this.nome = nome;
-        }
-        public void setSalario(double salario) {
-            this.salario = salario;
-        }
-        public void setDepartamento(String departamento) {
-            this.departamento = departamento;
-        }
-        public void setHorasTrabalho(int horas_trabalho) {
-            this.horas_trabalho = horas_trabalho;
-        }
+    /**
+     * Obtém o salário do funcionário.
+     * 
+     * @return O salário em euros.
+     */
+    public double getSalario() {
+        return salario;
+    }
 
-        //Métodos de funcionamento
-        /**
-         * Registar as horas de trabalho do funcionário
-         * Adiciona as horas ao contador total
-         * @param horas Número de horas a adicionar
-         */
+    /**
+     * Obtém o departamento do funcionário.
+     * 
+     * @return O departamento.
+     */
+    public String getDepartamento() {
+        return departamento;
+    }
 
-        public void trabalhar(int horas) {
-            if (horas >= 0) {
-                this.horas_trabalho += horas;
-            System.out.println(nome + " trabalhou " + horas + " horas. Total de horas: " + this.horas_trabalho);
-            }
+    /**
+     * Obtém as horas de trabalho do funcionário.
+     * 
+     * @return O número de horas trabalhadas.
+     */
+    public int getHoras_trabalho() {
+        return horas_trabalho;
+    }
+
+    // ========== MÉTODOS SETTERS ==========
+    /**
+     * Define o nome do funcionário.
+     * 
+     * @param nome Novo nome.
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * Define o salário do funcionário.
+     * 
+     * @param salario Novo salário em euros.
+     */
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    /**
+     * Define o departamento do funcionário.
+     * 
+     * @param departamento Novo departamento.
+     */
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    // ========== MÉTODOS DE FUNCIONAMENTO ==========
+    /**
+     * Registar as horas trabalhadas pelo funcionário. Adiciona as horas ao contador
+     * total.
+     * 
+     * @param horas Número de horas a adicionar.
+     */
+    public void trabalhar(int horas) {
+        if (horas > 0) {
+            this.horas_trabalho += horas;
+            System.out.println(nome + " trabalhou " + horas + " horas.");
         }
+    }
 
-        /**
-         * Calcula o búnus do funcionário
-         * Na classe base, o bónus é o salário + 100 euros
-         * 
-         * @return Valor do bónus
-         */
+    /**
+     * Calcula o bónus do funcionário. Na classe base, o bónus é o salário + 100
+     * euros. Este método pode ser sobrescrito pelas subclasses.
+     * 
+     * @return O valor do bónus em euros.
+     */
+    public double bonus() {
+        return salario + 100;
+    }
 
-        public double bonus() {
-            return salario + 100;
-        }
-
-        /**
-         * Método para exibir informações do funcionário
-         * @return String com as informações formatadas
-         */
-        @Override
-        public String toString() {
-            return "Nome: " + nome + " Departamento: " + departamento + " Salário: " + salario + " Horas de Trabalho: " + horas_trabalho;
-        }
-            
+    // ========== MÉTODO TOSTRING ==========
+    /**
+     * Retorna uma representação textual do funcionário.
+     * 
+     * @return String com as informações do funcionário no formato: "Nome: X -
+     *         Departamento: Y - Salário: Z euros - Horas: W"
+     */
+    @Override
+    public String toString() {
+        return "Nome: " + nome + " - Departamento: " + departamento + " - Salário: " + salario + " euros - Horas: "
+                + horas_trabalho;
+    }
 }

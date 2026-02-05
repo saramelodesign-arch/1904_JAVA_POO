@@ -1,18 +1,50 @@
-## Getting Started
+# PL01 – Programação Orientada a Objetos (Java)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Descrição
+Conjunto de exercícios desenvolvidos no âmbito da ficha prática **PL01 – Programação Orientada a Objetos**, com o objetivo de consolidar os conceitos fundamentais de POO em Java.
 
-## Folder Structure
+Os exercícios abordam a criação de classes, utilização de objetos, encapsulamento, métodos, construtores e interação entre classes.
 
-The workspace contains two folders by default, where:
+## Conteúdos Trabalhados
+Os exercícios do PL01 incidem sobre:
+- Criação de classes em Java
+- Definição de atributos
+- Implementação de construtores
+- Utilização de métodos
+- Encapsulamento (`private`, getters e setters)
+- Criação e utilização de objetos
+- Interação entre classes
+- Execução através da classe `Main`
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Estrutura Geral
+Cada exercício é composto, regra geral, por:
+- Uma ou mais classes que representam entidades do problema
+- Uma classe `Main` responsável por testar o funcionamento do exercício
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+A organização segue a estrutura:
+- `ex01`, `ex02`, `ex03`, …  
+- Cada pasta contém os ficheiros `.java` correspondentes ao exercício
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Exemplos de Exercícios
+- Gestão de alunos
+- Gestão de animais
+- Cálculo de áreas e volumes
+- Simulação de objetos do mundo real
+- Aplicação de lógica simples em contexto POO
 
-## Dependency Management
+## Conceitos Aplicados
+- Programação Orientada a Objetos
+- Classes e Objetos
+- Construtores
+- Métodos
+- Encapsulamento
+- Tipos de dados
+- Estruturas de controlo básicas
+- Impressão de resultados na consola
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Execução
+Cada exercício pode ser compilado e executado a partir da respetiva pasta:
+
+```bash
+javac *.java
+java Main
