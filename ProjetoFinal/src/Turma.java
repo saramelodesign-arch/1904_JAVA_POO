@@ -11,22 +11,15 @@ import java.util.ArrayList;
 public class Turma {
 
     // ========== ATRIBUTOS ==========
-    /** Código ou nome identificador da turma */
     private String codigo;
-
-    /** Curso ao qual a turma pertence */
     private Curso curso;
-
-    /** Lista de alunos da turma */
     private ArrayList<Aluno> alunos;
-
-    /** Lista de unidades curriculares da turma */
     private ArrayList<UnidadeCurricular> unidadesCurriculares;
 
+    // Capacidade máxima (necessária para estatísticas)
+    private int capacidadeMaxima = 30;
+
     // ========== CONSTRUTOR ==========
-    /**
-     * Construtor da classe Turma
-     */
     public Turma(String codigo, Curso curso) {
         this.codigo = codigo;
         this.curso = curso;
@@ -35,28 +28,86 @@ public class Turma {
     }
 
     // ========== MÉTODOS ==========
-    /**
-     * Adiciona um aluno à turma
-     */
+
     public void adicionarAluno(Aluno aluno) {
-        if (aluno != null) {
+        if (aluno != null && !alunos.contains(aluno)) {
             alunos.add(aluno);
         }
     }
 
-    /**
-     * Adiciona uma unidade curricular à turma
-     */
+    public void removerAluno(Aluno aluno) {
+        alunos.remove(aluno);
+    }
+
     public void adicionarUnidadeCurricular(UnidadeCurricular uc) {
-        if (uc != null) {
+        if (uc != null && !unidadesCurriculares.contains(uc)) {
             unidadesCurriculares.add(uc);
         }
     }
 
+    public void removerUnidadeCurricular(int indice) {
+        if (indice >= 0 && indice < unidadesCurriculares.size()) {
+            unidadesCurriculares.remove(indice);
+        }
+    }
+
+    public void removerUcPorReferencia(UnidadeCurricular uc) {
+        unidadesCurriculares.remove(uc);
+    }
+
+    public void listarAlunos() {
+        if (alunos.isEmpty()) {
+            System.out.println("(Sem alunos)");
+        } else {
+            for (int i = 0; i < alunos.size(); i++) {
+                System.out.println((i + 1) + " --------------------");
+                alunos.get(i).mostrarDetalhes();
+            }
+        }
+    }
+
+    public void listarUnidadesCurriculares() {
+
+    if (unidadesCurriculares.isEmpty()) {
+        System.out.println("(Sem unidades curriculares)");
+    } else {
+        for (int i = 0; i < unidadesCurriculares.size(); i++) {
+            System.out.println((i + 1) + " --------------------");
+            unidadesCurriculares.get(i).mostrarDetalhes();
+        }
+    }
+}
+
+
+    public int getNumeroAlunos() {
+        return alunos.size();
+    }
+
+    public int getCapacidadeMaxima() {
+        return capacidadeMaxima;
+    }
+
     /**
-     * Mostra os detalhes da turma
+     * Calcula média da turma
+     */
+    public double calcularMediaTurma() {
+
+        if (alunos.isEmpty()) return 0;
+
+        double soma = 0;
+
+        for (Aluno aluno : alunos) {
+            soma += aluno.calcularMedia();
+        }
+
+        return soma / alunos.size();
+    }
+
+    /**
+     * Mostra detalhes completos
      */
     public void mostrarDetalhes() {
+
         System.out.println("Turma: " + codigo);
         System.out.println("Curso: " + curso.getNome());
 
@@ -64,9 +115,9 @@ public class Turma {
         if (alunos.isEmpty()) {
             System.out.println("  (Sem alunos)");
         } else {
-            for (Aluno aluno : alunos) {
-                System.out.println("--------------------");
-                aluno.mostrarDetalhes();
+            for (int i = 0; i < alunos.size(); i++) {
+                System.out.println((i + 1) + " --------------------");
+                alunos.get(i).mostrarDetalhes();
             }
         }
 
@@ -74,14 +125,15 @@ public class Turma {
         if (unidadesCurriculares.isEmpty()) {
             System.out.println("  (Sem unidades curriculares)");
         } else {
-            for (UnidadeCurricular uc : unidadesCurriculares) {
-                System.out.println("--------------------");
-                uc.mostrarDetalhes();
+            for (int i = 0; i < unidadesCurriculares.size(); i++) {
+                System.out.println((i + 1) + " --------------------");
+                unidadesCurriculares.get(i).mostrarDetalhes();
             }
         }
     }
 
     // ========== GETTERS ==========
+
     public String getCodigo() {
         return codigo;
     }
@@ -96,5 +148,19 @@ public class Turma {
 
     public ArrayList<UnidadeCurricular> getUnidadesCurriculares() {
         return unidadesCurriculares;
+    }
+
+    // ========== SETTERS ==========
+
+    public void setNome(String codigo) {
+        if (codigo != null && !codigo.trim().isEmpty()) {
+            this.codigo = codigo;
+        }
+    }
+
+    public void setCapacidadeMaxima(int capacidadeMaxima) {
+        if (capacidadeMaxima > 0) {
+            this.capacidadeMaxima = capacidadeMaxima;
+        }
     }
 }

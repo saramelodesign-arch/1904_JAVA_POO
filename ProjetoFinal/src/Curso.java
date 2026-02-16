@@ -11,19 +11,11 @@ import java.util.ArrayList;
 public class Curso {
 
     // ========== ATRIBUTOS ==========
-    /** Nome do curso */
     private String nome;
-
-    /** Tipo do curso (Formação, Pós-graduação, Workshop) */
     private TipoCurso tipo;
-
-    /** Lista de unidades curriculares do curso */
     private ArrayList<UnidadeCurricular> unidadesCurriculares;
 
     // ========== CONSTRUTOR ==========
-    /**
-     * Construtor da classe Curso
-     */
     public Curso(String nome, TipoCurso tipo) {
         this.nome = nome;
         this.tipo = tipo;
@@ -31,17 +23,31 @@ public class Curso {
     }
 
     // ========== MÉTODOS ==========
-    /**
-     * Adiciona uma unidade curricular ao curso
-     */
+
     public void adicionarUnidadeCurricular(UnidadeCurricular uc) {
-        if (uc != null) {
+        if (uc != null && !unidadesCurriculares.contains(uc)) {
             unidadesCurriculares.add(uc);
         }
     }
 
     /**
-     * Mostra os detalhes do curso
+     * Remove uma UC por referência
+     */
+    public void removerUcPorReferencia(UnidadeCurricular uc) {
+        unidadesCurriculares.remove(uc);
+    }
+
+    /**
+     * Remove UC por índice
+     */
+    public void removerUcPorIndice(int indice) {
+        if (indice >= 0 && indice < unidadesCurriculares.size()) {
+            unidadesCurriculares.remove(indice);
+        }
+    }
+
+    /**
+     * Mostra detalhes do curso
      */
     public void mostrarDetalhes() {
         System.out.println("Curso: " + nome);
@@ -51,9 +57,9 @@ public class Curso {
         if (unidadesCurriculares.isEmpty()) {
             System.out.println("  (Sem unidades curriculares)");
         } else {
-            for (UnidadeCurricular uc : unidadesCurriculares) {
-                System.out.println("--------------------");
-                uc.mostrarDetalhes();
+            for (int i = 0; i < unidadesCurriculares.size(); i++) {
+                System.out.println((i + 1) + " --------------------");
+                unidadesCurriculares.get(i).mostrarDetalhes();
             }
         }
     }
@@ -69,5 +75,18 @@ public class Curso {
 
     public ArrayList<UnidadeCurricular> getUnidadesCurriculares() {
         return unidadesCurriculares;
+    }
+
+    // ========== SETTERS ==========
+    public void setNome(String nome) {
+        if (nome != null && !nome.trim().isEmpty()) {
+            this.nome = nome;
+        }
+    }
+
+    public void setTipo(TipoCurso tipo) {
+        if (tipo != null) {
+            this.tipo = tipo;
+        }
     }
 }

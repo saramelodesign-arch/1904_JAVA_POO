@@ -9,19 +9,11 @@
 public class UnidadeCurricular {
 
     // ========== ATRIBUTOS ==========
-    /** Nome da unidade curricular */
     private String nome;
-
-    /** Número de horas da unidade curricular */
     private int cargaHoraria;
-
-    /** Professor responsável pela unidade curricular */
     private Professor professorResponsavel;
 
     // ========== CONSTRUTOR ==========
-    /**
-     * Construtor da classe UnidadeCurricular
-     */
     public UnidadeCurricular(String nome, int cargaHoraria, Professor professorResponsavel) {
         this.nome = nome;
         this.cargaHoraria = cargaHoraria;
@@ -29,9 +21,7 @@ public class UnidadeCurricular {
     }
 
     // ========== MÉTODOS ==========
-    /**
-     * Mostra os detalhes da unidade curricular
-     */
+
     public void mostrarDetalhes() {
         System.out.println("Unidade Curricular: " + nome);
         System.out.println("Carga Horária: " + cargaHoraria + " horas");
@@ -45,6 +35,7 @@ public class UnidadeCurricular {
     }
 
     // ========== GETTERS ==========
+
     public String getNome() {
         return nome;
     }
@@ -57,10 +48,38 @@ public class UnidadeCurricular {
         return professorResponsavel;
     }
 
-    // ========== SETTER ==========
-    public void setProfessorResponsavel(Professor professorResponsavel) {
-        if (professorResponsavel != null) {
-            this.professorResponsavel = professorResponsavel;
+    /**
+     * Getter adicional para compatibilidade com o CRUD
+     */
+    public Professor getProfessor() {
+        return professorResponsavel;
+    }
+
+    // ========== SETTERS ==========
+
+    public void setNome(String nome) {
+        if (nome != null && !nome.trim().isEmpty()) {
+            this.nome = nome;
         }
+    }
+
+    public void setCargaHoraria(int cargaHoraria) {
+        if (cargaHoraria > 0) {
+            this.cargaHoraria = cargaHoraria;
+        }
+    }
+
+    /**
+     * Setter compatível com CRUD
+     */
+    public void setProfessor(Professor professor) {
+        this.professorResponsavel = professor;
+    }
+
+    /**
+     * Mantido para compatibilidade com código anterior
+     */
+    public void setProfessorResponsavel(Professor professorResponsavel) {
+        this.professorResponsavel = professorResponsavel;
     }
 }

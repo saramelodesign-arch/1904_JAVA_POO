@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Classe Professor
  * 
@@ -10,34 +12,25 @@
 public class Professor extends Pessoa {
 
     // ========== ATRIBUTOS ==========
-    /** Contador estático para gerar números de professor */
     private static int contadorProfessores = 500;
 
-    /** Número único do professor */
     private int numeroProfessor;
-
-    /** Área de especialização do professor */
     private String areaEspecializacao;
 
+    // Lista de UCs atribuídas ao professor
+    private ArrayList<UnidadeCurricular> unidadesCurriculares;
+
     // ========== CONSTRUTOR ==========
-    /**
-     * Construtor da classe Professor
-     */
     public Professor(String nome, String email, String telefone, int idade, String areaEspecializacao) {
-        // Chama o construtor da classe Pessoa
         super(nome, email, telefone, idade);
 
-        // Gera número automático de professor
         this.numeroProfessor = ++contadorProfessores;
-
-        // Define a área de especialização
         this.areaEspecializacao = areaEspecializacao;
+        this.unidadesCurriculares = new ArrayList<>();
     }
 
     // ========== MÉTODOS ==========
-    /**
-     * Implementação do método abstracto mostrarDetalhes()
-     */
+
     @Override
     public void mostrarDetalhes() {
         System.out.println("Professor Nº: " + numeroProfessor);
@@ -45,6 +38,30 @@ public class Professor extends Pessoa {
         System.out.println("Email: " + getEmail());
         System.out.println("Idade: " + getIdade());
         System.out.println("Área de Especialização: " + areaEspecializacao);
+        System.out.println("Número de UCs: " + unidadesCurriculares.size());
+    }
+
+    /**
+     * Associa uma UC ao professor
+     */
+    public void adicionarUc(UnidadeCurricular uc) {
+        if (uc != null && !unidadesCurriculares.contains(uc)) {
+            unidadesCurriculares.add(uc);
+        }
+    }
+
+    /**
+     * Remove UC do professor
+     */
+    public void removerUc(UnidadeCurricular uc) {
+        unidadesCurriculares.remove(uc);
+    }
+
+    /**
+     * Número total de UCs (usado nas estatísticas)
+     */
+    public int getNumeroUcs() {
+        return unidadesCurriculares.size();
     }
 
     // ========== GETTERS ==========
@@ -56,7 +73,11 @@ public class Professor extends Pessoa {
         return areaEspecializacao;
     }
 
-    // ========== SETTER ==========
+    public ArrayList<UnidadeCurricular> getUnidadesCurriculares() {
+        return unidadesCurriculares;
+    }
+
+    // ========== SETTERS ==========
     public void setAreaEspecializacao(String areaEspecializacao) {
         if (areaEspecializacao != null && !areaEspecializacao.trim().isEmpty()) {
             this.areaEspecializacao = areaEspecializacao;
